@@ -43,6 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cashback.cs" />
+    <Compile Include="Link.cs" />
+    <Compile Include="LinksMorele.cs" />
+    <Compile Include="MorelePrice.cs" />
+    <Compile Include="Motherboard.cs" />
+    <Compile Include="Names.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
