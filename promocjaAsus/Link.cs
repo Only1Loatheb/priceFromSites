@@ -8,12 +8,12 @@ namespace promocjaAsus
 {
     class Link
     {
-        public string link { get; }
+        public string url { get; }
         public Mobo name { get; }
        
         public Link(string l, Mobo n)
         {
-            link = l;
+            url = l;
             name = n;
         }
     }
