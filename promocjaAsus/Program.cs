@@ -16,8 +16,9 @@ namespace promocjaAsus
             Cashback cb = new Cashback();
 
              MoreleSearch search = new MoreleSearch();
-            const string ram3000mhz8gbDDR4 = "https://www.morele.net/komputery/podzespoly-komputerowe/pamieci-ram-38/,,,,,,,p,0,,7965O980523,7971O459459,7973O811795/1/";
-            Console.WriteLine("Najtańszy RAM: {0}",morele.getPriceFromUrl(search.getUrlToCheapestFromSearchUrl(ram3000mhz8gbDDR4)));
+            const string theCheapestRam3000mhz8gbDDR4 = "https://www.morele.net/komputery/podzespoly-komputerowe/pamieci-ram-38/,,,,,,,p,0,,7965O980523,7971O459459,7973O811795/1/";
+            string link = search.getUrlToFirstFromSearchUrl(theCheapestRam3000mhz8gbDDR4);
+            Console.WriteLine("Najtańszy RAM: {0} link: {1}", morele.getPriceFromUrl(link), link);
             
             /*
             Parallel.ForEach(linksMorele.links, (link)=>
