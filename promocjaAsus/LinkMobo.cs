@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace promocjaAsus
 {
-    class Link
+    class LinkMobo
     {
         public string url { get; }
         public Mobo name { get; }
        
-        public Link(string l, Mobo n)
+        public LinkMobo(string l, Mobo n)
         {
             url = l;
             name = n;

@@ -11,7 +11,15 @@ namespace promocjaAsus
     class MorelePrice
     {
         HtmlWeb web = new HtmlWeb();
-        public Motherboard getPriceFromLink(Link link)
+
+        public decimal getPriceFromUrl(string url)
+        {
+            HtmlDocument doc = web.Load(url);
+            var priceTag = doc.GetElementbyId("product_price_brutto");
+            return Convert.ToDecimal(priceTag.GetAttributeValue("content", "99999.0").Replace(".", ","));
+        }
+
+        public Motherboard getMoboFromLink(LinkMobo link)
         {
             HtmlDocument doc = web.Load(link.url);
             var priceTag = doc.GetElementbyId("product_price_brutto");
