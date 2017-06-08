@@ -23,20 +23,23 @@ namespace promocjaAsus
         {
             HtmlDocument doc = web.Load(search);
             var links = new  List<string>();
-            for (int i = 1; i <= n; ++i)
+            int tables = (int)Math.Floor(n / 3.0);
+            for (int tableNo = 1; tableNo <= tables; ++tableNo)
             {
-                int tableNo = (int)Math.Floor((double)i / 3.0) + 1;
-                int rowNo = i % 3 + 1;
-                string selector = String.Format("//*[@id=\"content\"]/div/div[2]/div[2]/div[2]/div[7]/div[{0}]/div/div[{1}]/div/div[2]/div[1]/div[1]/div[2]/a",
-                    tableNo, rowNo);
-                string href = doc.DocumentNode.SelectSingleNode(selector).GetAttributeValue("href", "");
-                if (href == "")
+                for (int rowNo = 1; (tableNo - 1) * 3 + rowNo - 1 < n && rowNo <= 3; ++rowNo)
                 {
-                    return links;
+                    //Console.WriteLine("{0}{1}{2}", tableNo, rowNo,tables);
+                    string selector = String.Format("//*[@id=\"content\"]/div/div[2]/div[2]/div[2]/div[7]/div[{0}]/div/div[{1}]/div/div[2]/div[1]/div[1]/div[2]/a",
+                        tableNo, rowNo);
+                    string href = doc.DocumentNode.SelectSingleNode(selector).GetAttributeValue("href", "");
+                    if (href == "")
+                    {
+                        return links;
+                    }
+                    StringBuilder sb = new StringBuilder(domain);
+                    sb.Append(href);
+                    links.Add(sb.ToString());
                 }
-                StringBuilder sb = new StringBuilder(domain);
-                sb.Append(href);
-                links.Add(sb.ToString());
             }
             return links;
         }
