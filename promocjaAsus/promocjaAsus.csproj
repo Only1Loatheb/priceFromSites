@@ -50,9 +50,9 @@
     <Compile Include="Cashback.cs" />
     <Compile Include="LinkMobo.cs" />
     <Compile Include="LinksMorele.cs" />
+    <Compile Include="Morele.cs" />
     <Compile Include="MorelePrice.cs" />
     <Compile Include="MoreleSearch.cs" />
-    <Compile Include="Motherboard.cs" />
     <Compile Include="Names.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
