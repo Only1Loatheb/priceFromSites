@@ -31,6 +31,16 @@ namespace promocjaAsus
         }
 
 
+        public List<Tuple<decimal, string>> getPairsPriceUrlFromSearches(List<string> searches)
+        {
+            var items = new List<Tuple<decimal, string>>();
+            Parallel.ForEach(searches, search => {
+                string link = searchMorele.getUrlToFirstFromSearchUrl(search);
+                items.Add(new Tuple<decimal, string>(priceMorele.getPriceFromUrl(link), link));
+            });
+            return items;
+        }
+
         public Tuple<decimal, string> getTopPairPriceUrlFromSearch(string search)
         {
             string link = searchMorele.getUrlToFirstFromSearchUrl(search);
@@ -40,7 +50,7 @@ namespace promocjaAsus
         public List<Tuple<decimal, Mobo, string>> getTriplesPriceLinkNameToAsusMobos()
         {
             var mobos = new List<Tuple<decimal, Mobo, string>>();
-            Parallel.ForEach(linksMorele.links, link =>
+            Parallel.ForEach(linksMorele.moboLinks, link =>
             {
                 mobos.Add(new Tuple<decimal, Mobo, string>(priceMorele.getPriceFromUrl(link.url),link.name,link.url));
             });
